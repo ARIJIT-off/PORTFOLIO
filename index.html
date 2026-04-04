@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arijit Pal — Portfolio</title>
+    <meta name="description" content="Portfolio of Arijit Pal — B.Tech CSE (Data Science) student, developer, and data science enthusiast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">Arijit<span>Pal</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="achievements.html" class="nav-link">Achievements</a>
+            <a href="certificates.html" class="nav-link">Certificates</a>
+            <a href="workexperience.html" class="nav-link">Work Experience</a>
+            <a href="academic.html" class="nav-link">Academics</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="HOME/Screen Recording 2026-04-04 205414.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <!-- LEFT MAIN CONTENT -->
+            <div class="hero-main" data-animate="fade-right">
+                <div class="hero-photo-wrap">
+                    <div class="hero-photo-glow"></div>
+                    <img src="Screenshot 2026-03-30 230959.png" alt="Arijit Pal" class="hero-photo">
+                </div>
+                <div class="hero-text">
+                    <h1 class="hero-name">Arijit Pal</h1>
+                    <p class="hero-title">B.Tech CSE — Data Science</p>
+                    <div class="hero-divider"></div>
+                    <p class="hero-bio">
+                        Motivated B.Tech CSE (Data Science), 2nd year student at 
+                        <strong>Institute of Engineering &amp; Management</strong>, Newtown, Kolkata 
+                        (School of University of Engineering and Management Kolkata), consistently achieving 
+                        a <strong>8.5+ SGPA</strong>. Passionate about developing impactful web applications 
+                        and data-driven solutions, with hands-on experience in <strong>React.js, Python, 
+                        and machine learning</strong>. Successfully completed two internships and deployed 
+                        five projects, demonstrating practical skills and innovative thinking. Recognized 
+                        as an <strong>Ideathon winner</strong>, showcasing strong foundations in data science, 
+                        cybersecurity, and entrepreneurship.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">8.5+</span>
+                            <span class="stat-label">SGPA</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Internships</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <div class="hero-sidebar" data-animate="fade-left" id="heroSidebar">
+                <div class="sidebar-glow"></div>
+                <div class="sidebar-progress-bar"></div>
+                
+                <div class="sidebar-header">
+                    <div class="sidebar-title">Skills &amp; Info</div>
+                </div>
+
+                <div class="sidebar-content" id="sidebarContent">
+                    <div class="sidebar-section cyber-reveal">
+                        <h3>CONTACT</h3>
+                        <ul>
+                            <li><span class="sidebar-bullet">»</span> <span class="cyber-text">+91 8100610943</span></li>
+                            <li><span class="sidebar-bullet">»</span> <span class="cyber-text">arijit.pal2024@uem.edu.in</span></li>
+                            <li><span class="sidebar-bullet">»</span> <span class="cyber-text">15 Nabin Sen Road Nabagram<br>Konnagar Hooghly PIN-712246</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section cyber-reveal">
+                        <h3>PROFILES</h3>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">LinkedIn</strong>
+                            <a href="https://linkedin.com/in/arijit-pal-146320360" class="cyber-link" target="_blank" rel="noopener noreferrer">linkedin.com/in/arijit-pal-146320360</a>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">GitHub</strong>
+                            <a href="https://github.com/ARIJIT-off" class="cyber-link" target="_blank" rel="noopener noreferrer">github.com/ARIJIT-off</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section cyber-reveal">
+                        <h3>TECHNICAL SKILLS</h3>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Languages</strong>
+                            <p class="cyber-text">Python, C, JavaScript, Java, C++</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Frontend</strong>
+                            <p class="cyber-text">React.js, HTML5, CSS3, Tailwind</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Backend</strong>
+                            <p class="cyber-text">Node.js, Express.js, Next.js</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Data / ML</strong>
+                            <p class="cyber-text">Pandas, NumPy, Scikit-learn, EDA</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Databases</strong>
+                            <p class="cyber-text">MySQL, SQL, Data Warehousing</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Tools</strong>
+                            <p class="cyber-text">Git, GitHub, Canvas API, Leaflet.js</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Security</strong>
+                            <p class="cyber-text">Cybersecurity Fundamentals</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Other</strong>
+                            <p class="cyber-text">Framer Motion, Chart.js, qrcode.js</p>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section cyber-reveal">
+                        <h3>COLLEGE DETAILS</h3>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Enrollment id</strong>
+                            <p class="cyber-text">12024002037046</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Registration No.</strong>
+                            <p class="cyber-text">304202400901653</p>
+                        </div>
+                        <div class="sidebar-item">
+                            <strong class="cyber-label">Institute</strong>
+                            <p class="cyber-text">IEM Newtown/ UEM Kolkata</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- BOTTOM SECTION -->
+    <section class="home-bottom" id="explore">
+        <div class="home-bottom-inner">
+            <!-- LEFT: Masonry Collage -->
+            <div class="masonry-section" data-animate="fade-up">
+                <h2 class="section-heading">Gallery</h2>
+                <div class="masonry-grid" id="masonryGrid">
+                    <div class="masonry-item masonry-tall">
+                        <img src="HOME/hackathon.jpeg" alt="Hackathon" loading="lazy">
+                        <div class="masonry-overlay"><span>Hackathon</span></div>
+                    </div>
+                    <div class="masonry-item">
+                        <img src="HOME/idec.jpeg" alt="IDEC" loading="lazy">
+                        <div class="masonry-overlay"><span>IDEC</span></div>
+                    </div>
+                    <div class="masonry-item masonry-wide">
+                        <img src="HOME/WhatsApp Image 2026-04-04 at 22.47.04.jpeg" alt="Moment" loading="lazy">
+                        <div class="masonry-overlay"><span>Moments</span></div>
+                    </div>
+                    <div class="masonry-item masonry-tall">
+                        <img src="HOME/WhatsApp Image 2026-04-04 at 22.51.57.jpeg" alt="Event" loading="lazy">
+                        <div class="masonry-overlay"><span>Events</span></div>
+                    </div>
+                    <div class="masonry-item">
+                        <img src="HOME/nice guy.jpeg" alt="Portrait" loading="lazy">
+                        <div class="masonry-overlay"><span>Portrait</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Navigation Cards -->
+            <div class="nav-cards-section" data-animate="fade-up">
+                <h2 class="section-heading">Explore</h2>
+                <div class="nav-cards">
+                    <a href="achievements.html" class="nav-card" id="navCardAchievements">
+                        <div class="nav-card-icon">🏆</div>
+                        <div class="nav-card-content">
+                            <h3>Achievements</h3>
+                            <p>Awards, competitions & recognitions</p>
+                        </div>
+                        <div class="nav-card-arrow">→</div>
+                    </a>
+                    <a href="certificates.html" class="nav-card" id="navCardCertificates">
+                        <div class="nav-card-icon">📜</div>
+                        <div class="nav-card-content">
+                            <h3>Certificates</h3>
+                            <p>Professional certifications & courses</p>
+                        </div>
+                        <div class="nav-card-arrow">→</div>
+                    </a>
+                    <a href="workexperience.html" class="nav-card" id="navCardWork">
+                        <div class="nav-card-icon">💼</div>
+                        <div class="nav-card-content">
+                            <h3>Work Experience</h3>
+                            <p>Internships & professional roles</p>
+                        </div>
+                        <div class="nav-card-arrow">→</div>
+                    </a>
+                    <a href="academic.html" class="nav-card" id="navCardAcademic">
+                        <div class="nav-card-icon">🎓</div>
+                        <div class="nav-card-content">
+                            <h3>Academic Portfolio</h3>
+                            <p>Grades, marksheets & CV</p>
+                        </div>
+                        <div class="nav-card-arrow">→</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Arijit Pal — All Rights Reserved</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
