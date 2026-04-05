@@ -77,6 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const cyberReveals = document.querySelectorAll('.cyber-reveal');
         cyberReveals.forEach(el => cyberObserver.observe(el));
     }
+
+    // Global Tech Card Glow Effect
+    document.querySelectorAll('.tech-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+    });
 });
 
 // Lightbox functionality
