@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Arijit Pal</title>
+    <meta name="description" content="Showcase of deployed projects by Arijit Pal — full-stack apps, dashboards, navigation engines, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">Arijit<span>Pal</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="achievements.html" class="nav-link">Achievements</a>
+            <a href="certificates.html" class="nav-link">Certificates</a>
+            <a href="workexperience.html" class="nav-link">Work Experience</a>
+            <a href="projects.html" class="nav-link active">Projects</a>
+            <a href="academic.html" class="nav-link">Academics</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- VIDEO BACKGROUND -->
+    <div class="video-bg-page">
+        <video autoplay muted loop playsinline>
+            <source src="Screen Recording 2026-04-06 114705.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-content" data-animate="fade-up">
+            <h1>&#128640; Projects</h1>
+            <p>Full-stack applications, dashboards & real-world solutions</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <div class="projects-section">
+
+        <!-- ======== PROJECT 1 — RailSmart ======== -->
+        <article class="project-showcase tech-card" data-animate="fade-up" id="project-railsmart">
+            <div class="project-number">01</div>
+            <div class="project-inner">
+                <div class="project-pdf-column">
+                    <div class="project-pdf-frame">
+                        <div class="pdf-frame-corner tl"></div>
+                        <div class="pdf-frame-corner tr"></div>
+                        <div class="pdf-frame-corner bl"></div>
+                        <div class="pdf-frame-corner br"></div>
+                        <embed src="Railsmart/railsmart.pdf" type="application/pdf">
+                    </div>
+                    <a href="Railsmart/railsmart.pdf" download class="project-download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download PDF
+                    </a>
+                </div>
+                <div class="project-info-column">
+                    <div class="project-header">
+                        <h2 class="project-title">RailSmart</h2>
+                        <div class="project-status-badge live">LIVE</div>
+                    </div>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag accent">Indian Railways API</span>
+                    </div>
+                    <p class="project-description">
+                        Modern train tracking & analytics dashboard with real-time insights, station status, and journey planning. Features real-time search, interactive route maps, PNR tracking, and a fully responsive premium UI.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://rs-phi-inky.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link demo">
+                            <span class="link-dot"></span>
+                            Demo &nbsp;&#8594;
+                        </a>
+                        <a href="https://github.com/ARIJIT-off/RAILSENSE" target="_blank" rel="noopener noreferrer" class="project-link repo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ======== PROJECT 2 — Polluture ======== -->
+        <article class="project-showcase tech-card" data-animate="fade-up" id="project-polluture">
+            <div class="project-number">02</div>
+            <div class="project-inner reverse">
+                <div class="project-pdf-column">
+                    <div class="project-pdf-frame">
+                        <div class="pdf-frame-corner tl"></div>
+                        <div class="pdf-frame-corner tr"></div>
+                        <div class="pdf-frame-corner bl"></div>
+                        <div class="pdf-frame-corner br"></div>
+                        <embed src="Polluture/POLLUTURE.pdf" type="application/pdf">
+                    </div>
+                    <a href="Polluture/POLLUTURE.pdf" download class="project-download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download PDF
+                    </a>
+                </div>
+                <div class="project-info-column">
+                    <div class="project-header">
+                        <h2 class="project-title">Polluture</h2>
+                        <div class="project-status-badge live">LIVE</div>
+                    </div>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag">Leaflet.js</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag accent">CountUp.js</span>
+                    </div>
+                    <p class="project-description">
+                        Interactive map tool to draw custom zones on a real Kolkata map and calculate precise ecological impact. Computes AQI deterioration, groundwater drop, temperature rise, and Ecological Debt in INR per zone.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://polluture.vercel.app" target="_blank" rel="noopener noreferrer" class="project-link demo">
+                            <span class="link-dot"></span>
+                            Demo &nbsp;&#8594;
+                        </a>
+                        <a href="https://github.com/ARIJIT-off/POLLUTURE" target="_blank" rel="noopener noreferrer" class="project-link repo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ======== PROJECT 3 — RideRiddles ======== -->
+        <article class="project-showcase tech-card" data-animate="fade-up" id="project-rideriddles">
+            <div class="project-number">03</div>
+            <div class="project-inner">
+                <div class="project-pdf-column">
+                    <div class="project-pdf-frame">
+                        <div class="pdf-frame-corner tl"></div>
+                        <div class="pdf-frame-corner tr"></div>
+                        <div class="pdf-frame-corner bl"></div>
+                        <div class="pdf-frame-corner br"></div>
+                        <embed src="Rideriddles/ride (1).pdf" type="application/pdf">
+                    </div>
+                    <a href="Rideriddles/ride (1).pdf" download class="project-download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download PDF
+                    </a>
+                </div>
+                <div class="project-info-column">
+                    <div class="project-header">
+                        <h2 class="project-title">RideRiddles</h2>
+                        <div class="project-status-badge live">LIVE</div>
+                    </div>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">Leaflet.js</span>
+                        <span class="tech-tag">OpenStreetMap</span>
+                        <span class="tech-tag accent">Bidirectional A*</span>
+                    </div>
+                    <p class="project-description">
+                        Full-stack navigation app for Kolkata using live OSM data and a custom bidirectional routing engine. Supports mode-aware road snapping (car/bike/walk) with curated traffic, road condition, and shade overlays.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://code-vortex-ride-riddles-1-490r.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link demo">
+                            <span class="link-dot"></span>
+                            Demo &nbsp;&#8594;
+                        </a>
+                        <a href="https://github.com/ARIJIT-off/code-vortexride-riddles" target="_blank" rel="noopener noreferrer" class="project-link repo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ======== PROJECT 4 — UEM SEATS ======== -->
+        <article class="project-showcase tech-card" data-animate="fade-up" id="project-uemseats">
+            <div class="project-number">04</div>
+            <div class="project-inner reverse">
+                <div class="project-pdf-column">
+                    <div class="project-pdf-frame">
+                        <div class="pdf-frame-corner tl"></div>
+                        <div class="pdf-frame-corner tr"></div>
+                        <div class="pdf-frame-corner bl"></div>
+                        <div class="pdf-frame-corner br"></div>
+                        <embed src="UEMSEAT/uemseats.pdf" type="application/pdf">
+                    </div>
+                    <a href="UEMSEAT/uemseats.pdf" download class="project-download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download PDF
+                    </a>
+                </div>
+                <div class="project-info-column">
+                    <div class="project-header">
+                        <h2 class="project-title">UEM SEATS</h2>
+                        <div class="project-subtitle">Premium Examination Seating System</div>
+                        <div class="project-badges-row">
+                            <div class="project-status-badge live">LIVE</div>
+                            <div class="project-status-badge ai">AI-Enhanced</div>
+                        </div>
+                    </div>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Vanilla JS</span>
+                        <span class="tech-tag accent">AI Algorithms</span>
+                    </div>
+                    <p class="project-description">
+                        UEM SEATS is a state-of-the-art, AI-enhanced examination seating management system designed specifically for University of Engineering & Management (UEM). It combines professional aesthetics with advanced logical algorithms to ensure a seamless and secure examination experience for both faculty and students.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://ux-topaz-ten.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link demo">
+                            <span class="link-dot"></span>
+                            Demo &nbsp;&#8594;
+                        </a>
+                        <a href="https://github.com/ARIJIT-off/UEM-EXAM-SEATS" target="_blank" rel="noopener noreferrer" class="project-link repo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ======== PROJECT 5 — Movie-Heist ======== -->
+        <article class="project-showcase tech-card" data-animate="fade-up" id="project-movieheist">
+            <div class="project-number">05</div>
+            <div class="project-inner">
+                <div class="project-pdf-column">
+                    <div class="project-pdf-frame">
+                        <div class="pdf-frame-corner tl"></div>
+                        <div class="pdf-frame-corner tr"></div>
+                        <div class="pdf-frame-corner bl"></div>
+                        <div class="pdf-frame-corner br"></div>
+                        <embed src="Movieheist/movieheist.pdf" type="application/pdf">
+                    </div>
+                    <a href="Movieheist/movieheist.pdf" download class="project-download-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download PDF
+                    </a>
+                </div>
+                <div class="project-info-column">
+                    <div class="project-header">
+                        <h2 class="project-title">Movie-Heist</h2>
+                        <div class="project-status-badge live">LIVE</div>
+                    </div>
+                    <div class="project-tech-stack">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">TMDB API</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag accent">YouTube Embeds</span>
+                    </div>
+                    <p class="project-description">
+                        Full-stack cinematic movie discovery app with real-time TMDB data, smart debounced search, and genre filters. Includes PVR theater availability, 20+ OTT platform routing, and YouTube trailer embeds.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://mh-flame.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link demo">
+                            <span class="link-dot"></span>
+                            Demo &nbsp;&#8594;
+                        </a>
+                        <a href="https://github.com/ARIJIT-off/Movie-heist" target="_blank" rel="noopener noreferrer" class="project-link repo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                            Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Arijit Pal — All Rights Reserved</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

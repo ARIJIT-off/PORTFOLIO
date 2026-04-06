@@ -1,0 +1,414 @@
+/* =============================================
+   PROJECTS PAGE — PREMIUM DESIGN SYSTEM
+   ============================================= */
+
+/* SECTION WRAPPER */
+.projects-section {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem clamp(1rem, 3vw, 3rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* =============================================
+   PROJECT SHOWCASE CARD
+   ============================================= */
+.project-showcase {
+    position: relative;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    overflow: visible;
+}
+
+/* Large project number watermark */
+.project-number {
+    position: absolute;
+    top: -18px;
+    left: clamp(1rem, 2vw, 2rem);
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    font-weight: 800;
+    color: rgba(212, 168, 67, 0.07);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+    transition: color 0.5s ease;
+}
+.project-showcase:hover .project-number {
+    color: rgba(212, 168, 67, 0.14);
+}
+
+/* Inner layout grid */
+.project-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    position: relative;
+    z-index: 1;
+    align-items: start;
+}
+.project-inner.reverse {
+    grid-template-columns: 1.2fr 1fr;
+}
+.project-inner.reverse .project-pdf-column {
+    order: 2;
+}
+.project-inner.reverse .project-info-column {
+    order: 1;
+}
+
+/* =============================================
+   PDF PREVIEW FRAME
+   ============================================= */
+.project-pdf-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.project-pdf-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: linear-gradient(145deg, #0c1222, #111b30);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.project-showcase:hover .project-pdf-frame {
+    border-color: rgba(212, 168, 67, 0.2);
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(212, 168, 67, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.project-pdf-frame embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: var(--radius-md);
+}
+
+/* Decorative corner accents */
+.pdf-frame-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.project-showcase:hover .pdf-frame-corner {
+    opacity: 1;
+}
+.pdf-frame-corner.tl {
+    top: 6px; left: 6px;
+    border-top: 2px solid var(--accent-gold);
+    border-left: 2px solid var(--accent-gold);
+}
+.pdf-frame-corner.tr {
+    top: 6px; right: 6px;
+    border-top: 2px solid var(--accent-gold);
+    border-right: 2px solid var(--accent-gold);
+}
+.pdf-frame-corner.bl {
+    bottom: 6px; left: 6px;
+    border-bottom: 2px solid var(--accent-gold);
+    border-left: 2px solid var(--accent-gold);
+}
+.pdf-frame-corner.br {
+    bottom: 6px; right: 6px;
+    border-bottom: 2px solid var(--accent-gold);
+    border-right: 2px solid var(--accent-gold);
+}
+
+/* Download button */
+.project-download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--accent-gold-light);
+    background: rgba(212, 168, 67, 0.08);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.project-download-btn:hover {
+    background: rgba(212, 168, 67, 0.16);
+    border-color: rgba(212, 168, 67, 0.45);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(212, 168, 67, 0.15);
+    transform: translateY(-1px);
+}
+.project-download-btn svg {
+    flex-shrink: 0;
+}
+
+/* =============================================
+   PROJECT INFO COLUMN
+   ============================================= */
+.project-info-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 0.5rem 0;
+}
+
+/* Header area */
+.project-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.project-subtitle {
+    width: 100%;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: -0.4rem;
+}
+
+.project-badges-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.project-status-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+.project-status-badge.live {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.1);
+    border: 1px solid rgba(52, 211, 153, 0.25);
+    box-shadow: 0 0 12px rgba(52, 211, 153, 0.08);
+}
+.project-status-badge.ai {
+    color: var(--accent-cyan);
+    background: rgba(54, 214, 231, 0.1);
+    border: 1px solid rgba(54, 214, 231, 0.25);
+    box-shadow: 0 0 12px rgba(54, 214, 231, 0.08);
+}
+
+/* Tech stack tags */
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tech-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.28rem 0.65rem;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.tech-tag.accent {
+    color: var(--accent-gold-light);
+    background: rgba(212, 168, 67, 0.08);
+    border-color: rgba(212, 168, 67, 0.18);
+}
+.project-showcase:hover .tech-tag {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+}
+.project-showcase:hover .tech-tag.accent {
+    background: rgba(212, 168, 67, 0.12);
+    border-color: rgba(212, 168, 67, 0.28);
+}
+
+/* Description */
+.project-description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 580px;
+}
+
+/* Links */
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.55rem 1.3rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+.project-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+/* Demo link */
+.project-link.demo {
+    color: #34d399;
+    background: rgba(52, 211, 153, 0.06);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+}
+.project-link.demo::before {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(52, 211, 153, 0.04));
+}
+.project-link.demo:hover {
+    border-color: rgba(52, 211, 153, 0.5);
+    box-shadow: 0 4px 20px rgba(52, 211, 153, 0.12);
+    transform: translateY(-1px);
+}
+.project-link.demo:hover::before {
+    opacity: 1;
+}
+
+.link-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+    animation: pulseDot 2s ease-in-out infinite;
+}
+@keyframes pulseDot {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(52, 211, 153, 0.6); }
+    50% { opacity: 0.6; box-shadow: 0 0 16px rgba(52, 211, 153, 0.4); }
+}
+
+/* Repo link */
+.project-link.repo {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.project-link.repo::before {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+}
+.project-link.repo:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+.project-link.repo:hover::before {
+    opacity: 1;
+}
+
+/* =============================================
+   DECORATIVE LINE CONNECTOR 
+   ============================================= */
+.project-showcase + .project-showcase::after {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 2rem;
+    background: linear-gradient(to bottom, transparent, rgba(212, 168, 67, 0.25), transparent);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+    .project-inner,
+    .project-inner.reverse {
+        grid-template-columns: 1fr;
+    }
+    .project-inner.reverse .project-pdf-column,
+    .project-inner.reverse .project-info-column {
+        order: unset;
+    }
+    .project-pdf-frame {
+        max-height: 400px;
+        aspect-ratio: unset;
+        height: 350px;
+    }
+    .project-number {
+        font-size: 3rem;
+        top: -12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-section {
+        padding: 1.5rem 1rem 3rem;
+        gap: 2rem;
+    }
+    .project-showcase {
+        padding: 1.2rem;
+    }
+    .project-pdf-frame {
+        height: 280px;
+    }
+    .project-title {
+        font-size: 1.4rem;
+    }
+    .project-links {
+        flex-direction: column;
+    }
+    .project-link {
+        justify-content: center;
+    }
+}
