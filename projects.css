@@ -1,5 +1,5 @@
 /* =============================================
-   PROJECTS PAGE — PREMIUM DESIGN SYSTEM
+   PROJECTS PAGE — DESIGN SYSTEM
    ============================================= */
 
 /* SECTION WRAPPER */
@@ -21,6 +21,13 @@
     position: relative;
     padding: clamp(1.5rem, 3vw, 2.5rem);
     overflow: visible;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+}
+.project-showcase:hover {
+    border-color: var(--accent);
 }
 
 /* Large project number watermark */
@@ -31,7 +38,7 @@
     font-family: var(--font-display);
     font-size: clamp(3.5rem, 6vw, 5rem);
     font-weight: 800;
-    color: rgba(212, 168, 67, 0.07);
+    color: rgba(92, 74, 46, 0.06);
     line-height: 1;
     pointer-events: none;
     z-index: 0;
@@ -39,7 +46,7 @@
     transition: color 0.5s ease;
 }
 .project-showcase:hover .project-number {
-    color: rgba(212, 168, 67, 0.14);
+    color: rgba(92, 74, 46, 0.12);
 }
 
 /* Inner layout grid */
@@ -74,62 +81,55 @@
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 5;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     overflow: hidden;
-    background: linear-gradient(145deg, #0c1222, #111b30);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow:
-        0 4px 24px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    transition: border-color var(--transition-fast);
 }
 .project-showcase:hover .project-pdf-frame {
-    border-color: rgba(212, 168, 67, 0.2);
-    box-shadow:
-        0 8px 40px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(212, 168, 67, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
 }
 
 .project-pdf-frame embed {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
 }
 
-/* Decorative corner accents */
+/* Corner accents — simplified to hairlines */
 .pdf-frame-corner {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     z-index: 2;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
 }
 .project-showcase:hover .pdf-frame-corner {
     opacity: 1;
 }
 .pdf-frame-corner.tl {
-    top: 6px; left: 6px;
-    border-top: 2px solid var(--accent-gold);
-    border-left: 2px solid var(--accent-gold);
+    top: 5px; left: 5px;
+    border-top: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
 }
 .pdf-frame-corner.tr {
-    top: 6px; right: 6px;
-    border-top: 2px solid var(--accent-gold);
-    border-right: 2px solid var(--accent-gold);
+    top: 5px; right: 5px;
+    border-top: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
 }
 .pdf-frame-corner.bl {
-    bottom: 6px; left: 6px;
-    border-bottom: 2px solid var(--accent-gold);
-    border-left: 2px solid var(--accent-gold);
+    bottom: 5px; left: 5px;
+    border-bottom: 1px solid var(--accent);
+    border-left: 1px solid var(--accent);
 }
 .pdf-frame-corner.br {
-    bottom: 6px; right: 6px;
-    border-bottom: 2px solid var(--accent-gold);
-    border-right: 2px solid var(--accent-gold);
+    bottom: 5px; right: 5px;
+    border-bottom: 1px solid var(--accent);
+    border-right: 1px solid var(--accent);
 }
 
 /* Download button */
@@ -138,27 +138,21 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.65rem 1.4rem;
+    padding: 0.6rem 1.3rem;
     font-family: var(--font-body);
     font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--accent-gold-light);
-    background: rgba(212, 168, 67, 0.08);
-    border: 1px solid rgba(212, 168, 67, 0.2);
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--paper);
+    border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
     text-decoration: none;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
 }
 .project-download-btn:hover {
-    background: rgba(212, 168, 67, 0.16);
-    border-color: rgba(212, 168, 67, 0.45);
-    color: #fff;
-    box-shadow: 0 4px 20px rgba(212, 168, 67, 0.15);
-    transform: translateY(-1px);
+    border-color: var(--accent);
+    color: var(--ink);
 }
 .project-download-btn svg {
     flex-shrink: 0;
@@ -185,19 +179,17 @@
 
 .project-title {
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--text-primary), var(--accent-gold-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.2;
+    color: var(--ink);
+    line-height: 1.15;
 }
 
 .project-subtitle {
     width: 100%;
-    font-size: 0.88rem;
-    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    color: var(--ink);
+    opacity: 0.55;
     font-style: italic;
     margin-top: -0.4rem;
 }
@@ -209,26 +201,29 @@
 }
 
 .project-status-badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 0.3rem 0.75rem;
-    border-radius: 100px;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
     white-space: nowrap;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    opacity: 0.65;
 }
 .project-status-badge.live {
-    color: #34d399;
-    background: rgba(52, 211, 153, 0.1);
-    border: 1px solid rgba(52, 211, 153, 0.25);
-    box-shadow: 0 0 12px rgba(52, 211, 153, 0.08);
+    color: #2a7a52;
+    background: rgba(42, 122, 82, 0.06);
+    border-color: rgba(42, 122, 82, 0.25);
+    opacity: 1;
 }
 .project-status-badge.ai {
-    color: var(--accent-cyan);
-    background: rgba(54, 214, 231, 0.1);
-    border: 1px solid rgba(54, 214, 231, 0.25);
-    box-shadow: 0 0 12px rgba(54, 214, 231, 0.08);
+    color: var(--accent);
+    background: rgba(92, 74, 46, 0.06);
+    border-color: rgba(92, 74, 46, 0.2);
+    opacity: 1;
 }
 
 /* Tech stack tags */
@@ -239,37 +234,34 @@
 }
 
 .tech-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
     font-weight: 500;
-    padding: 0.28rem 0.65rem;
-    border-radius: 6px;
-    color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    letter-spacing: 0.3px;
-    transition: all 0.3s ease;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    opacity: 0.6;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
     white-space: nowrap;
+    transition: border-color var(--transition-fast), opacity var(--transition-fast);
 }
 .tech-tag.accent {
-    color: var(--accent-gold-light);
-    background: rgba(212, 168, 67, 0.08);
-    border-color: rgba(212, 168, 67, 0.18);
+    color: var(--accent);
+    background: rgba(92, 74, 46, 0.06);
+    border-color: rgba(92, 74, 46, 0.2);
+    opacity: 1;
 }
 .project-showcase:hover .tech-tag {
-    border-color: rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.06);
-}
-.project-showcase:hover .tech-tag.accent {
-    background: rgba(212, 168, 67, 0.12);
-    border-color: rgba(212, 168, 67, 0.28);
+    opacity: 0.8;
 }
 
 /* Description */
 .project-description {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     line-height: 1.8;
-    color: var(--text-secondary);
+    color: var(--ink);
+    opacity: 0.7;
     max-width: 580px;
 }
 
@@ -277,7 +269,7 @@
 .project-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 0.75rem;
     margin-top: 0.5rem;
 }
 
@@ -286,86 +278,52 @@
     align-items: center;
     gap: 0.5rem;
     font-family: var(--font-body);
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 0.55rem 1.3rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    padding: 0.5rem 1.1rem;
     border-radius: var(--radius-sm);
-    transition: all 0.3s ease;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
     text-decoration: none;
-    position: relative;
-    overflow: hidden;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--paper);
 }
-.project-link::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-}
+.project-link::before { display: none; }
 
 /* Demo link */
 .project-link.demo {
-    color: #34d399;
-    background: rgba(52, 211, 153, 0.06);
-    border: 1px solid rgba(52, 211, 153, 0.2);
-}
-.project-link.demo::before {
-    background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(52, 211, 153, 0.04));
+    color: #2a7a52;
+    border-color: rgba(42, 122, 82, 0.3);
+    background: rgba(42, 122, 82, 0.04);
 }
 .project-link.demo:hover {
-    border-color: rgba(52, 211, 153, 0.5);
-    box-shadow: 0 4px 20px rgba(52, 211, 153, 0.12);
-    transform: translateY(-1px);
-}
-.project-link.demo:hover::before {
-    opacity: 1;
+    border-color: #2a7a52;
+    color: #1e5a3c;
 }
 
 .link-dot {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
-    animation: pulseDot 2s ease-in-out infinite;
+    background: #2a7a52;
 }
-@keyframes pulseDot {
-    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(52, 211, 153, 0.6); }
-    50% { opacity: 0.6; box-shadow: 0 0 16px rgba(52, 211, 153, 0.4); }
-}
+/* No pulse animation per design doc */
 
 /* Repo link */
 .project-link.repo {
-    color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.project-link.repo::before {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    color: var(--ink);
+    opacity: 0.65;
 }
 .project-link.repo:hover {
-    color: var(--text-primary);
-    border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.06);
-    transform: translateY(-1px);
-}
-.project-link.repo:hover::before {
     opacity: 1;
+    border-color: var(--ink);
 }
 
 /* =============================================
-   DECORATIVE LINE CONNECTOR 
+   SECTION DIVIDER
    ============================================= */
 .project-showcase + .project-showcase::after {
-    content: '';
-    position: absolute;
-    top: -2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 2rem;
-    background: linear-gradient(to bottom, transparent, rgba(212, 168, 67, 0.25), transparent);
+    display: none;
 }
 
 /* =============================================
