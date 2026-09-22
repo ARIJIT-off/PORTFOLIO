@@ -8,6 +8,138 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,600;0,700;0,800;1,600&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Subject-wise grades panel */
+        .subject-panel-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.4rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--paper);
+            background: var(--ink);
+            border: 1px solid var(--ink);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: background var(--transition-fast), color var(--transition-fast);
+            margin-bottom: 2rem;
+        }
+        .subject-panel-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        .subject-panel {
+            display: none;
+            margin-bottom: 3rem;
+        }
+        .subject-panel.open {
+            display: block;
+        }
+        .subject-panel-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .subject-panel-header h2 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        .subject-panel-header p {
+            font-size: 0.82rem;
+            color: var(--ink);
+            opacity: 0.5;
+        }
+        .subject-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        .subject-table thead tr {
+            border-bottom: 2px solid var(--ink);
+        }
+        .subject-table th {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink);
+            opacity: 0.5;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+        }
+        .subject-table td {
+            padding: 0.7rem 0.75rem;
+            color: var(--ink);
+            border-bottom: 1px solid var(--line);
+            vertical-align: middle;
+        }
+        .subject-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .subject-table tbody tr:hover td {
+            background: var(--paper-raised);
+        }
+        .grade-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--line);
+            min-width: 2rem;
+            text-align: center;
+        }
+        .grade-O  { color: #1e5a3c; border-color: rgba(30,90,60,0.25); background: rgba(30,90,60,0.06); }
+        .grade-E  { color: var(--accent); border-color: rgba(92,74,46,0.25); background: rgba(92,74,46,0.06); }
+        .grade-A  { color: var(--ink); background: var(--paper-raised); }
+        .grade-B  { color: var(--ink); opacity: 0.7; background: var(--paper-raised); }
+        .grade-C  { color: var(--ink); opacity: 0.55; background: var(--paper-raised); }
+        .relevance-bar-wrap {
+            width: 80px;
+            height: 4px;
+            background: var(--line);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .relevance-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .sem-tag {
+            font-size: 0.72rem;
+            padding: 0.1rem 0.45rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            color: var(--ink);
+            opacity: 0.55;
+            white-space: nowrap;
+        }
+        .cgpa-callout {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--paper-raised);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            color: var(--ink);
+            margin-bottom: 2rem;
+        }
+        .cgpa-callout strong {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--accent);
+            font-weight: 800;
+        }
+    </style>
 </head>
 <body>
 
@@ -38,7 +170,269 @@
     <!-- ACADEMIC SECTIONS -->
     <div class="academic-section">
 
-        <!-- SECTION 1: Semester Grade Cards (RESULT) -->
+        <!-- CGPA SUMMARY -->
+        <div style="margin-bottom: 1.5rem;">
+            <div class="cgpa-callout">
+                <strong>8.88</strong>
+                <span>CGPA across 4 semesters &nbsp;·&nbsp; 102 total credits &nbsp;·&nbsp; 905.5 credit points</span>
+            </div>
+        </div>
+
+        <!-- SUBJECT-WISE GRADES BUTTON -->
+        <button class="subject-panel-btn" id="subjectPanelBtn" onclick="toggleSubjectPanel()">
+            View subject-wise grades sorted by corporate exam relevance &#8595;
+        </button>
+
+        <!-- SUBJECT-WISE GRADES PANEL -->
+        <div class="subject-panel" id="subjectPanel">
+            <div class="subject-panel-header">
+                <h2>Subject-wise Grades</h2>
+                <p>Sorted by relevance to TCS NQT &amp; corporate aptitude exams (highest first)</p>
+            </div>
+            <div style="overflow-x:auto;">
+            <table class="subject-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>Sem</th>
+                        <th>Grade</th>
+                        <th>Points</th>
+                        <th>TCS NQT Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Tier 1: Core CS / Coding / Logic — highest NQT weight -->
+                    <tr>
+                        <td style="opacity:0.4;">1</td>
+                        <td>Data Structure &amp; Algorithms</td>
+                        <td><span class="sem-tag">Sem 3</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:100%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">2</td>
+                        <td>Design &amp; Analysis of Algorithms</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-A">A</span></td>
+                        <td>8.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:96%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">3</td>
+                        <td>Programming for Problem Solving</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:93%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">4</td>
+                        <td>Advanced Programming (OOP)</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:90%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">5</td>
+                        <td>Artificial Intelligence &amp; Machine Learning</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:87%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">6</td>
+                        <td>Data Analytics</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-B">B</span></td>
+                        <td>7.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:84%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">7</td>
+                        <td>Computer Organization &amp; Architecture</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:82%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">8</td>
+                        <td>Discrete Mathematics</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-A">A</span></td>
+                        <td>8.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:80%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">9</td>
+                        <td>Mathematics - III</td>
+                        <td><span class="sem-tag">Sem 3</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:76%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">10</td>
+                        <td>Mathematics - II</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-O">O</span></td>
+                        <td>10.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:74%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">11</td>
+                        <td>Mathematics - I</td>
+                        <td><span class="sem-tag">Sem 1</span></td>
+                        <td><span class="grade-badge grade-O">O</span></td>
+                        <td>10.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:72%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">12</td>
+                        <td>Introduction to AI and Data Science using Python</td>
+                        <td><span class="sem-tag">Sem 1</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:70%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">13</td>
+                        <td>Digital Electronics</td>
+                        <td><span class="sem-tag">Sem 3</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:64%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">14</td>
+                        <td>IT Workshop (MATLAB)</td>
+                        <td><span class="sem-tag">Sem 3</span></td>
+                        <td><span class="grade-badge grade-C">C</span></td>
+                        <td>6.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:55%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">15</td>
+                        <td>Management I (Finance &amp; Accounting)</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-B">B</span></td>
+                        <td>7.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:50%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">16</td>
+                        <td>Physics</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:45%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">17</td>
+                        <td>Electronics — Fundamentals &amp; Principles</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-C">C</span></td>
+                        <td>6.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:42%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">18</td>
+                        <td>Basic Electrical Engineering</td>
+                        <td><span class="sem-tag">Sem 1</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:40%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">19</td>
+                        <td>Analog Electronic Circuits</td>
+                        <td><span class="sem-tag">Sem 3</span></td>
+                        <td><span class="grade-badge grade-A">A</span></td>
+                        <td>8.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:36%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">20</td>
+                        <td>Humanities I (Principles of Management)</td>
+                        <td><span class="sem-tag">Sem 3</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:32%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">21</td>
+                        <td>English</td>
+                        <td><span class="sem-tag">Sem 1</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:30%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">22</td>
+                        <td>Biology for Engineers</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:20%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">23</td>
+                        <td>Chemistry</td>
+                        <td><span class="sem-tag">Sem 1</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:16%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">24</td>
+                        <td>Engineering Mechanics I</td>
+                        <td><span class="sem-tag">Sem 1</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:14%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">25</td>
+                        <td>Engineering Mechanics II</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:14%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">26</td>
+                        <td>Engineering Graphics &amp; Design</td>
+                        <td><span class="sem-tag">Sem 2</span></td>
+                        <td><span class="grade-badge grade-A">A</span></td>
+                        <td>8.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:10%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">27</td>
+                        <td>Sustainability &amp; Climate Actions</td>
+                        <td><span class="sem-tag">Sem 4</span></td>
+                        <td><span class="grade-badge grade-O">O</span></td>
+                        <td>10.0</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:8%;"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td style="opacity:0.4;">28</td>
+                        <td>Intro to Basic Astronomy I &amp; II (Minor)</td>
+                        <td><span class="sem-tag">Sem 3–4</span></td>
+                        <td><span class="grade-badge grade-E">E</span></td>
+                        <td>9.0 avg</td>
+                        <td><div class="relevance-bar-wrap"><div class="relevance-bar" style="width:5%;"></div></div></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+        <!-- SECTION 1: Semester Grade Cards -->
         <div class="academic-group" data-animate="fade-up">
             <h2 class="academic-group-title">Semester Grade Cards</h2>
             <div class="pdf-grid">
@@ -51,7 +445,7 @@
                     </div>
                     <div class="pdf-info">
                         <h3>Semester 1 — Grade Card &nbsp;<span style="color:var(--accent);font-size:0.9em;">SGPA: 9.09</span></h3>
-                        <p>First semester grade card for B.Tech CSE (Data Science) at IEM, Newtown. Subjects include Chemistry, Basic Electrical Engineering, Engineering Mechanics, Mathematics-I, English, and lab practicals. Scored an outstanding SGPA of 9.09, with O grades in Mathematics-I and lab subjects.</p>
+                        <p>First year, first semester. Subjects: Chemistry (E), Basic Electrical Engineering (E), Engineering Mechanics I (E), Mathematics-I (O), English (E), and lab practicals. 23.5 credits, 213.5 credit points.</p>
                     </div>
                 </div>
 
@@ -63,7 +457,7 @@
                     </div>
                     <div class="pdf-info">
                         <h3>Semester 2 — Grade Card &nbsp;<span style="color:var(--accent);font-size:0.9em;">SGPA: 9.11</span></h3>
-                        <p>Second semester grade card for B.Tech CSE covering Mathematics-II, Physics, Programming for Problem Solving, Engineering Mechanics, Biology, and Engineering Graphics. Achieved SGPA of 9.11 with O grades in Mathematics-II and Programming Lab.</p>
+                        <p>First year, second semester. Subjects: Mathematics-II (O), Physics (E), Programming for Problem Solving (E), Engineering Mechanics II (E), Biology for Engineers (E), Engineering Graphics (A). 23.5 credits, 214.0 credit points.</p>
                     </div>
                 </div>
 
@@ -75,14 +469,26 @@
                     </div>
                     <div class="pdf-info">
                         <h3>Semester 3 — Grade Card &nbsp;<span style="color:var(--accent);font-size:0.9em;">SGPA: 8.63</span></h3>
-                        <p>Second year, first semester grade card covering Mathematics-III, Analog Electronic Circuits, Digital Electronics, Data Structures &amp; Algorithms, and Humanities. Also includes a Minor in Basic Astronomy. SGPA of 8.63 across 26 credit hours.</p>
+                        <p>Second year, first semester. Subjects: Mathematics-III (E), Analog Electronic Circuits (A), Digital Electronics (E), Data Structures &amp; Algorithms (E), Humanities (E), IT Workshop MATLAB (C). Also includes Minor in Basic Astronomy I (B). 26.0 credits, 224.5 credit points.</p>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <div class="pdf-preview">
+                        <div class="pdf-preview-placeholder" style="position:relative;">
+                            <img src="DETAILS, MARKSHEET, RESULT, CV/Arijit Pal 12024002037046 sem 4 gradecard.png" alt="Semester 4 Grade Card" style="width:100%;height:100%;object-fit:contain;position:absolute;inset:0;background:var(--paper-raised);">
+                        </div>
+                    </div>
+                    <div class="pdf-info">
+                        <h3>Semester 4 — Grade Card &nbsp;<span style="color:var(--accent);font-size:0.9em;">SGPA: 8.74</span></h3>
+                        <p>Second year, second semester. Subjects: Discrete Mathematics (A), Computer Organization &amp; Architecture (E), AI &amp; Machine Learning (E), Design &amp; Analysis of Algorithms (A), Advanced Programming OOP (E), Data Analytics (B), Management I (B). O grades in Sustainability, DAA Lab, and OOP Lab. Minor: Basic Astronomy II (E). 29.0 credits, 253.5 credit points.</p>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- SECTION 2: Board Marksheets (MARKSHEET) -->
+        <!-- SECTION 2: Board Marksheets -->
         <div class="academic-group" data-animate="fade-up">
             <h2 class="academic-group-title">Board Marksheets</h2>
             <div class="pdf-grid">
@@ -125,7 +531,7 @@
                     </div>
                     <div class="pdf-info">
                         <h3>Arijit Pal — Resume</h3>
-                        <p>Comprehensive resume highlighting education at IEM Newtown (B.Tech CSE — Data Science, 8.5+ SGPA), technical skills in React.js, Python, Machine Learning, SQL, and data visualisation tools. Features two internship experiences, five deployed projects, Ideathon winner recognition, and multiple certifications.</p>
+                        <p>Comprehensive resume highlighting education at IEM Newtown (B.Tech CSE — Data Science, CGPA 8.88), technical skills in React.js, Python, Machine Learning, SQL, and data visualisation tools. Features two internship experiences, six deployed projects, Ideathon winner recognition, and multiple certifications.</p>
                         <a href="DETAILS, MARKSHEET, RESULT, CV/Arijit_Pal_resume_mainnnn.pdf" target="_blank" class="pdf-link" style="margin-top: 1rem;">
                             View full resume &rsaquo;
                         </a>
@@ -151,5 +557,15 @@
     </footer>
 
     <script src="main.js"></script>
+    <script>
+        function toggleSubjectPanel() {
+            const panel = document.getElementById('subjectPanel');
+            const btn = document.getElementById('subjectPanelBtn');
+            const isOpen = panel.classList.toggle('open');
+            btn.textContent = isOpen
+                ? 'Hide subject-wise grades \u2191'
+                : 'View subject-wise grades sorted by corporate exam relevance \u2193';
+        }
+    </script>
 </body>
 </html>
